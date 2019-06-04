@@ -72,6 +72,12 @@ namespace Croupier30 {
 
 	}
 
+	Void MyForm::UpdatePlayerStatus() {
+		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+			pgb->Update();
+		}
+	}
+
 	void MyForm::FinishMove() {
 		
 		StackLabel->Text = Convert::ToString(table.stack);
@@ -122,9 +128,7 @@ namespace Croupier30 {
 			}
 		}
 
-		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-			pgb->Update();
-		}
+		UpdatePlayerStatus();
 
 	}
 
@@ -143,8 +147,6 @@ namespace Croupier30 {
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		current_player = next_active_player(dealer);
 
-		StackLabel->Text = Convert::ToString(table.stack);
-		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
 		RoundLabel->Text = "Preflop";
 
 		current_player->smallblind();
@@ -152,6 +154,11 @@ namespace Croupier30 {
 		current_player->bigblind();
 		player_to_wait_for = current_player;
 		current_player = next_active_player(current_player);
+
+		UpdatePlayerStatus();
+
+		StackLabel->Text = Convert::ToString(table.stack);
+		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
 
 		MoveIntercationBox();
 	}

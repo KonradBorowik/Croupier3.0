@@ -483,18 +483,21 @@ namespace Croupier30 {
 		}
 #pragma endregion
 
+		void UpdatePlayerStatus();
+
 		void MoveIntercationBox();
 
 		void FinishMove();
 
 		ref class PlayerGroupBox : public System::Windows::Forms::GroupBox {
-		public: System::Windows::Forms::Button^ WinnerButton;
-		public: System::Windows::Forms::Label^ CashLabel;
-		public: System::Windows::Forms::Label^ CurrentBidLabel;
-		public: int player_number;
-		public: System::Windows::Forms::Label^ CashPrompt;
-		public: System::Windows::Forms::Label^ CurrentBidPrompt;
-				void Update();
+		public:
+			System::Windows::Forms::Button^ WinnerButton;
+			System::Windows::Forms::Label^ CashLabel;
+			System::Windows::Forms::Label^ CurrentBidLabel;
+			int player_number;
+			System::Windows::Forms::Label^ CashPrompt;
+			System::Windows::Forms::Label^ CurrentBidPrompt;
+			void Update();
 		};
 
 		List<PlayerGroupBox^> PlayerGroupBoxes;
