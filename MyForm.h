@@ -305,6 +305,7 @@ namespace Croupier30 {
 			this->label3->Size = System::Drawing::Size(63, 13);
 			this->label3->TabIndex = 7;
 			this->label3->Text = L"Enter Name";
+			this->label3->Visible = false;
 			// 
 			// label6
 			// 

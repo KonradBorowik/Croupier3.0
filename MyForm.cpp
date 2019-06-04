@@ -116,7 +116,7 @@ namespace Croupier30 {
 	}
 
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		//TableBox->Visible = true;
+		TableBox->Visible = true;
 		StartButton->Visible = false;
 		AddPlayerButton->Visible = false;
 		InteractionBox->Visible = true;
