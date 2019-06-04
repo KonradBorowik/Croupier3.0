@@ -23,22 +23,20 @@ namespace Croupier30 {
 	}
 	
 	System::Void MyForm::NewGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		while (BuyInBox->Text == "" || SmallBlindBox->Text == "" || BigBlindBox->Text == "") {
-			if (BuyInBox->Text == "") {
-				MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
-			if (SmallBlindBox->Text == "") {
-				MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
-			if (BigBlindBox->Text == "") {
-				MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-			}
-
-
-			table.buy_in = Convert::ToInt32(BuyInBox->Text);
-			table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
-			table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		if (BuyInBox->Text == "") {
+			MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		}
+		if (SmallBlindBox->Text == "") {
+			MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		if (BigBlindBox->Text == "") {
+			MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+
+		table.buy_in = Convert::ToInt32(BuyInBox->Text);
+		table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
+		table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		
 		this->MoneyBox->Visible = false;
 		this->AddPlayerButton->Visible = true;
 	}
@@ -75,6 +73,10 @@ namespace Croupier30 {
 	}
 
 	void MyForm::FinishMove() {
+		
+		StackLabel->Text = Convert::ToString(table.stack);
+		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
+
 		if (player_to_wait_for == current_player) {
 			all_players_acted = true;
 		}
@@ -141,6 +143,8 @@ namespace Croupier30 {
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		current_player = next_active_player(dealer);
 
+		StackLabel->Text = Convert::ToString(table.stack);
+		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
 		RoundLabel->Text = "Preflop";
 
 		current_player->smallblind();
