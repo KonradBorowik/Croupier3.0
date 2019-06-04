@@ -497,7 +497,7 @@ namespace Croupier30 {
 				void Update();
 		};
 
-		List<PlayerGroupBox^>^ PlayerGroupBoxes = gcnew List<PlayerGroupBox^>();
+		List<PlayerGroupBox^> PlayerGroupBoxes;
 
 private: System::Void AddPlayerButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void NewGameButton_Click(System::Object^ sender, System::EventArgs^ e);

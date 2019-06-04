@@ -105,7 +105,9 @@ namespace Croupier30 {
 			}
 			else {
 				InteractionBox->Visible = false;
-				//na liscie aktywowac przyciski
+				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+					pgb->WinnerButton->Visible = true;
+				}
 			}
 		}
 
@@ -215,7 +217,7 @@ namespace Croupier30 {
 		}
 		//MessageBox::Show("player added", "notification", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		Update();
-		PlayerGroupBoxes->Add(groupBox);
+		PlayerGroupBoxes.Add(groupBox);
 	}
 
 	System::Void MyForm::CheckButton_Click(System::Object^ sender, System::EventArgs^ e) {
