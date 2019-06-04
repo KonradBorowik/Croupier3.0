@@ -23,19 +23,39 @@ namespace Croupier30 {
 	}
 	
 	System::Void MyForm::NewGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (BuyInBox->Text == "") {
-			MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		}
-		if (SmallBlindBox->Text == "") {
-			MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		}
-		if (BigBlindBox->Text == "") {
-			MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//if (BuyInBox->Text == "") {
+		//	MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
+		//if (SmallBlindBox->Text == "") {
+		//	MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
+		//if (BigBlindBox->Text == "") {
+		//	MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
+
+		try {
+			table.buy_in = Convert::ToInt32(BuyInBox->Text);
+		} catch (...) {
+			BuyInBox->Focus();
+			BuyInBox->Text = "";
+			return;
 		}
 
-		table.buy_in = Convert::ToInt32(BuyInBox->Text);
-		table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
-		table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		try {
+			table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
+		} catch (...) {
+			SmallBlindBox->Focus();
+			SmallBlindBox->Text = "";
+			return;
+		}
+
+		try {
+			table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		} catch (...) {
+			BigBlindBox->Focus();
+			BigBlindBox->Text = "";
+			return;
+		}
 		
 		this->MoneyBox->Visible = false;
 		this->AddPlayerButton->Visible = true;
@@ -103,23 +123,11 @@ namespace Croupier30 {
 					player.current_bid = 0;
 				}
 
-				if (table.round == 1) {
-					RoundLabel->Text = "Flop";
-				}
-				else if (table.round == 2) {
-					RoundLabel->Text = "Turn";
-				}
-				else {
-					RoundLabel->Text = "River";
-				}
+				auto round_names = std::vector<std::string>{ "Preflop", "Flop", "Turn", "River" };
+				RoundLabel->Text = msclr::interop::marshal_as<System::String^>(round_names[table.round]);
 
-				table.highest_bid = 0;
-				for (auto& player : table.players) {
-					player.current_bid = 0;
-				}
 				player_to_wait_for = dealer;
 				current_player = next_active_player(dealer);
-
 
 				//interaction.round_counter(newtable.round);
 				all_players_acted = false;

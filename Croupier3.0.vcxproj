@@ -138,7 +138,6 @@
     <ClCompile Include="..\Croupier2.0\PlayersInteraction.cpp" />
     <ClCompile Include="..\Croupier2.0\Table.cpp" />
     <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="MyUserControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Croupier2.0\Player.h" />
@@ -146,9 +145,6 @@
     <ClInclude Include="..\Croupier2.0\Table.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="MyUserControl.h">
-      <FileType>CppControl</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
