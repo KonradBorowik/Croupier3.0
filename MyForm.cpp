@@ -113,8 +113,7 @@ namespace Croupier30 {
 
 		if ((!table.all_players_called() || !all_players_acted) && table.number_of_players_with_cash() >= 1 && table.number_of_players_not_folded() >= 2) {
 			MoveIntercationBox();
-		}
-		else {
+		} else {
 			if (table.round < 3 && table.number_of_players_with_cash() >= 2 && table.number_of_players_not_folded() >= 2) {
 				table.round += 1;
 
@@ -132,14 +131,11 @@ namespace Croupier30 {
 				//interaction.round_counter(newtable.round);
 				all_players_acted = false;
 				MoveIntercationBox();
-			}
-			else {
+			} else {
 				InteractionBox->Visible = false;
 				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
 					pgb->WinnerButton->Visible = true;
 				}
-
-
 			}
 		}
 
@@ -153,6 +149,23 @@ namespace Croupier30 {
 		auto groupbox = (PlayerGroupBox^)button->Parent;
 		table.players[groupbox->player_number].cash += table.stack;
 
+		for (int i = table.players.size() - 1; i > 0 - 1; i--) {
+			if (table.players[i].cash == 0) {
+				table.players.erase(table.players.begin() + i);
+			}
+		}
+
+		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+			pgb->Update();
+			pgb->WinnerButton->Visible = false;
+		}
+
+		if (table.players.size() == 1) {
+			std::string winner = table.players[0].name;
+			MessageBox::Show(" won!", "Game Finished", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			Application::Exit();
+		}
+
 		table.stack = 0;
 		for (auto& player : table.players) {
 			player.folded = false;
@@ -161,11 +174,7 @@ namespace Croupier30 {
 
 		StackLabel->Text = Convert::ToString(table.stack);
 		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
-		
-		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-			pgb->Update();
-			pgb->WinnerButton->Visible = false;
-		}		
+	
 
 		StartButton->Visible = true;
 	}

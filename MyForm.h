@@ -464,7 +464,7 @@ namespace Croupier30 {
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(29, 13);
 			this->label9->TabIndex = 8;
-			this->label9->Text = L"Deal " + deal;
+			this->label9->Text = L"Deal";
 			// 
 			// MyForm
 			// 
