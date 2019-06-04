@@ -279,6 +279,7 @@ namespace Croupier30 {
 			this->BigBlindBox->Name = L"BigBlindBox";
 			this->BigBlindBox->Size = System::Drawing::Size(100, 20);
 			this->BigBlindBox->TabIndex = 2;
+			this->BigBlindBox->Text = L"10";
 			// 
 			// SmallBlindBox
 			// 
@@ -286,6 +287,7 @@ namespace Croupier30 {
 			this->SmallBlindBox->Name = L"SmallBlindBox";
 			this->SmallBlindBox->Size = System::Drawing::Size(100, 20);
 			this->SmallBlindBox->TabIndex = 1;
+			this->SmallBlindBox->Text = L"5";
 			// 
 			// BuyInBox
 			// 
@@ -293,6 +295,7 @@ namespace Croupier30 {
 			this->BuyInBox->Name = L"BuyInBox";
 			this->BuyInBox->Size = System::Drawing::Size(100, 20);
 			this->BuyInBox->TabIndex = 0;
+			this->BuyInBox->Text = L"100";
 			// 
 			// label3
 			// 
