@@ -98,6 +98,11 @@ namespace Croupier30 {
 			if (table.round < 3 && table.number_of_players_with_cash() >= 2 && table.number_of_players_not_folded() >= 2) {
 				table.round += 1;
 
+				table.highest_bid = 0;
+				for (auto& player : table.players) {
+					player.current_bid = 0;
+				}
+
 				if (table.round == 1) {
 					RoundLabel->Text = "Flop";
 				}
@@ -125,6 +130,8 @@ namespace Croupier30 {
 				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
 					pgb->WinnerButton->Visible = true;
 				}
+
+
 			}
 		}
 
@@ -133,9 +140,26 @@ namespace Croupier30 {
 	}
 
 	System::Void MyForm::WinnerButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		WinnerButton->Visible = false;
+
+		auto button = (Button^)sender;
+		auto groupbox = (PlayerGroupBox^)button->Parent;
+		table.players[groupbox->player_number].cash += table.stack;
+
+		table.stack = 0;
+		for (auto& player : table.players) {
+			player.folded = false;
+			player.current_bid = 0;
+		}
+
+		StackLabel->Text = Convert::ToString(table.stack);
+		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
+		
+		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+			pgb->Update();
+			pgb->WinnerButton->Visible = false;
+		}		
+
 		StartButton->Visible = true;
-		current_player->cash += table.stack;
 	}
 
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -177,8 +201,6 @@ namespace Croupier30 {
 
 		auto groupBox = gcnew PlayerGroupBox();
 		groupBox->Visible = true;
-		//	groupBox->Controls->Add(this->label3);
-		//groupBox->Controls->Add(this->label2);
 		groupBox->Location = System::Drawing::Point(12 + number_of_players++ * 210, 41);
 		groupBox->Name = L"groupBox1";
 		groupBox->Size = System::Drawing::Size(200, 90);
@@ -230,6 +252,7 @@ namespace Croupier30 {
 		groupBox->WinnerButton->Text = L"Winner";
 		groupBox->WinnerButton->UseVisualStyleBackColor = true;
 		groupBox->WinnerButton->Visible = false;
+		groupBox->WinnerButton->Click += gcnew System::EventHandler(this, &MyForm::WinnerButton_Click);
 		groupBox->Controls->Add(groupBox->WinnerButton);
 
 		this->AddPlayerBox->Text = "";

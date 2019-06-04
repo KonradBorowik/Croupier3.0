@@ -221,7 +221,6 @@ namespace Croupier30 {
 			this->WinnerButton->Text = L"Winner";
 			this->WinnerButton->UseVisualStyleBackColor = true;
 			this->WinnerButton->Visible = false;
-			this->WinnerButton->Click += gcnew System::EventHandler(this, &MyForm::WinnerButton_Click);
 			// 
 			// label1
 			// 
@@ -489,6 +488,8 @@ namespace Croupier30 {
 
 		void FinishMove();
 
+		System::Void WinnerButton_Click(System::Object^ sender, System::EventArgs^ e);
+
 		ref class PlayerGroupBox : public System::Windows::Forms::GroupBox {
 		public:
 			System::Windows::Forms::Button^ WinnerButton;
@@ -498,6 +499,7 @@ namespace Croupier30 {
 			System::Windows::Forms::Label^ CashPrompt;
 			System::Windows::Forms::Label^ CurrentBidPrompt;
 			void Update();
+			
 		};
 
 		List<PlayerGroupBox^> PlayerGroupBoxes;
@@ -512,6 +514,5 @@ private: System::Void RaiseButton_Click(System::Object^ sender, System::EventArg
 private: System::Void BidButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void AllInButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void FoldButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void WinnerButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
