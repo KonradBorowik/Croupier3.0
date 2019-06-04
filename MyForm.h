@@ -367,7 +367,6 @@ namespace Croupier30 {
 			this->RoundLabel->Size = System::Drawing::Size(35, 13);
 			this->RoundLabel->TabIndex = 6;
 			this->RoundLabel->Text = L"label6";
-			this->RoundLabel->Click += gcnew System::EventHandler(this, &MyForm::RoundLabel_Click);
 			// 
 			// label8
 			// 
@@ -502,7 +501,6 @@ namespace Croupier30 {
 
 private: System::Void AddPlayerButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void NewGameButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void RoundLabel_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void StartButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void AddPlayerBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void CheckButton_Click(System::Object^ sender, System::EventArgs^ e);

@@ -30,21 +30,6 @@ namespace Croupier30 {
 		this->AddPlayerButton->Visible = true;
 	}
 
-	System::Void MyForm::RoundLabel_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (table.round == 0) {
-			RoundLabel->Text = "Preflop";
-		}
-		else if (table.round == 1) {
-			RoundLabel->Text = "Flop";
-		}
-		else if (table.round == 2) {
-			RoundLabel->Text = "Turn";
-		}
-		else {
-			RoundLabel->Text = "River";
-		}
-	}
-
 	std::vector<Player>::iterator next_active_player(std::vector<Player>::iterator current_player) {
 		current_player++;
 		if (current_player == table.players.end()) {
@@ -91,6 +76,17 @@ namespace Croupier30 {
 		else {
 			if (table.round < 3 && table.number_of_players_with_cash() >= 2 && table.number_of_players_not_folded() >= 2) {
 				table.round += 1;
+
+				if (table.round == 1) {
+					RoundLabel->Text = "Flop";
+				}
+				else if (table.round == 2) {
+					RoundLabel->Text = "Turn";
+				}
+				else {
+					RoundLabel->Text = "River";
+				}
+
 				table.highest_bid = 0;
 				for (auto& player : table.players) {
 					player.current_bid = 0;
@@ -131,6 +127,8 @@ namespace Croupier30 {
 		deal++;
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		current_player = next_active_player(dealer);
+
+		RoundLabel->Text = "Preflop";
 
 		current_player->smallblind();
 		current_player = next_active_player(current_player);
