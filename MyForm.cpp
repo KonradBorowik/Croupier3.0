@@ -89,7 +89,7 @@ namespace Croupier30 {
 			MoveIntercationBox();
 		}
 		else {
-			if (table.round < 4 && table.number_of_players_with_cash() >= 2 && table.number_of_players_not_folded() >= 2) {
+			if (table.round < 3 && table.number_of_players_with_cash() >= 2 && table.number_of_players_not_folded() >= 2) {
 				table.round += 1;
 				table.highest_bid = 0;
 				for (auto& player : table.players) {
@@ -115,6 +115,12 @@ namespace Croupier30 {
 			pgb->Update();
 		}
 
+	}
+
+	System::Void MyForm::WinnerButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		WinnerButton->Visible = false;
+		StartButton->Visible = true;
+		current_player->cash += table.stack;
 	}
 
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -195,7 +201,7 @@ namespace Croupier30 {
 		groupBox->Controls->Add(groupBox->CurrentBidLabel);
 
 		groupBox->WinnerButton = (gcnew System::Windows::Forms::Button());
-		groupBox->WinnerButton->Location = System::Drawing::Point(119, 89);
+		groupBox->WinnerButton->Location = System::Drawing::Point(119, 60);
 		groupBox->WinnerButton->Name = L"WinnerButton";
 		groupBox->WinnerButton->Size = System::Drawing::Size(75, 23);
 		groupBox->WinnerButton->TabIndex = 10;

@@ -221,6 +221,7 @@ namespace Croupier30 {
 			this->WinnerButton->Text = L"Winner";
 			this->WinnerButton->UseVisualStyleBackColor = true;
 			this->WinnerButton->Visible = false;
+			this->WinnerButton->Click += gcnew System::EventHandler(this, &MyForm::WinnerButton_Click);
 			// 
 			// label1
 			// 
@@ -510,5 +511,6 @@ private: System::Void RaiseButton_Click(System::Object^ sender, System::EventArg
 private: System::Void BidButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void AllInButton_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void FoldButton_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void WinnerButton_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
