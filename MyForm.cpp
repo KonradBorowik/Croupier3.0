@@ -171,11 +171,9 @@ namespace Croupier30 {
 	}
 
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		TableBox->Visible = true;
-		StartButton->Visible = false;
-		AddPlayerButton->Visible = false;
-		InteractionBox->Visible = true;
 		deal++;
+		label9->Text = L"Deal " + deal;
+
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		current_player = next_active_player(dealer);
 
@@ -193,6 +191,11 @@ namespace Croupier30 {
 		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
 
 		MoveIntercationBox();
+
+		TableBox->Visible = true;
+		StartButton->Visible = false;
+		AddPlayerButton->Visible = false;
+		InteractionBox->Visible = true;
 	}
 
 	System::Void MyForm::AddPlayerBox_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
