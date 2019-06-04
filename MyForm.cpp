@@ -23,9 +23,22 @@ namespace Croupier30 {
 	}
 	
 	System::Void MyForm::NewGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		table.buy_in = Convert::ToInt32(BuyInBox->Text);
-		table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
-		table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		while (BuyInBox->Text == "" || SmallBlindBox->Text == "" || BigBlindBox->Text == "") {
+			if (BuyInBox->Text == "") {
+				MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			if (SmallBlindBox->Text == "") {
+				MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			if (BigBlindBox->Text == "") {
+				MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+
+
+			table.buy_in = Convert::ToInt32(BuyInBox->Text);
+			table.small_blind = Convert::ToInt32(SmallBlindBox->Text);
+			table.big_blind = Convert::ToInt32(BigBlindBox->Text);
+		}
 		this->MoneyBox->Visible = false;
 		this->AddPlayerButton->Visible = true;
 	}
