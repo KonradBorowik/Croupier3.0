@@ -23,6 +23,15 @@ namespace Croupier30 {
 	}
 	
 	System::Void MyForm::NewGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		//if (BuyInBox->Text == "") {
+		//	MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
+		//if (SmallBlindBox->Text == "") {
+		//	MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
+		//if (BigBlindBox->Text == "") {
+		//	MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		//}
 
 		try {
 			table.buy_in = Convert::ToInt32(BuyInBox->Text);
@@ -134,6 +143,7 @@ namespace Croupier30 {
 				current_player = next_active_player(dealer);
 				player_to_wait_for = prev_active_player(current_player);
 
+				//interaction.round_counter(newtable.round);
 				all_players_acted = false;
 				MoveIntercationBox();
 			} else {
@@ -166,8 +176,8 @@ namespace Croupier30 {
 		}
 
 		if (table.players.size() == 1) {
-			auto winner = std::string(table.players[0].name + " won!");
-			MessageBox::Show(msclr::interop::marshal_as<System::String^>(winner), "Game Finished", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			std::string winner = table.players[0].name;
+			MessageBox::Show(" won!", "Game Finished", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			Application::Exit();
 		}
 
@@ -288,6 +298,7 @@ namespace Croupier30 {
 		if (number_of_players > 1) {
 			StartButton->Visible = true;
 		}
+		//MessageBox::Show("player added", "notification", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		Update();
 		PlayerGroupBoxes.Add(groupBox);
 	}
