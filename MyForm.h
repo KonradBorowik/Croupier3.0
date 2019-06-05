@@ -114,6 +114,7 @@ namespace Croupier30 {
 			this->WinnerButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->MoneyBox = (gcnew System::Windows::Forms::GroupBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->NewGameButton = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -136,7 +137,6 @@ namespace Croupier30 {
 			this->CallButton = (gcnew System::Windows::Forms::Button());
 			this->BidButton = (gcnew System::Windows::Forms::Button());
 			this->CheckButton = (gcnew System::Windows::Forms::Button());
-			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->PlayerBox->SuspendLayout();
 			this->MoneyBox->SuspendLayout();
 			this->TableBox->SuspendLayout();
@@ -250,6 +250,15 @@ namespace Croupier30 {
 			this->MoneyBox->TabIndex = 4;
 			this->MoneyBox->TabStop = false;
 			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(6, 74);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(48, 13);
+			this->label10->TabIndex = 7;
+			this->label10->Text = L"Big Blind";
+			// 
 			// NewGameButton
 			// 
 			this->NewGameButton->Location = System::Drawing::Point(61, 101);
@@ -284,7 +293,6 @@ namespace Croupier30 {
 			this->BigBlindBox->Name = L"BigBlindBox";
 			this->BigBlindBox->Size = System::Drawing::Size(100, 20);
 			this->BigBlindBox->TabIndex = 2;
-			this->BigBlindBox->Text = L"10";
 			// 
 			// SmallBlindBox
 			// 
@@ -292,7 +300,6 @@ namespace Croupier30 {
 			this->SmallBlindBox->Name = L"SmallBlindBox";
 			this->SmallBlindBox->Size = System::Drawing::Size(100, 20);
 			this->SmallBlindBox->TabIndex = 1;
-			this->SmallBlindBox->Text = L"5";
 			// 
 			// BuyInBox
 			// 
@@ -300,7 +307,6 @@ namespace Croupier30 {
 			this->BuyInBox->Name = L"BuyInBox";
 			this->BuyInBox->Size = System::Drawing::Size(100, 20);
 			this->BuyInBox->TabIndex = 0;
-			this->BuyInBox->Text = L"100";
 			// 
 			// label3
 			// 
@@ -468,15 +474,6 @@ namespace Croupier30 {
 			this->CheckButton->UseVisualStyleBackColor = true;
 			this->CheckButton->Visible = false;
 			this->CheckButton->Click += gcnew System::EventHandler(this, &MyForm::CheckButton_Click);
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(6, 74);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(48, 13);
-			this->label10->TabIndex = 7;
-			this->label10->Text = L"Big Blind";
 			// 
 			// MyForm
 			// 

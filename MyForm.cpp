@@ -137,16 +137,10 @@ namespace Croupier30 {
 				all_players_acted = false;
 				MoveIntercationBox();
 			} else {
-				for (int i = 0; i < table.players.size(); i++) {
-					InteractionBox->Visible = false;
-					
-					for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-						if (!table.players[i].folded) {
-						pgb->WinnerButton->Visible = true;
-						}
-					}
+				InteractionBox->Visible = false;			
+				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+					pgb->WinnerButton->Visible = true;
 				}
-
 			}
 		}
 
@@ -271,15 +265,6 @@ namespace Croupier30 {
 		groupBox->CurrentBidLabel->TabIndex = 0;
 		groupBox->CurrentBidLabel->Text = "";
 		groupBox->Controls->Add(groupBox->CurrentBidLabel);
-
-		groupBox->BlindLabel = (gcnew System::Windows::Forms::Label());
-		groupBox->BlindLabel->AutoSize = true;
-		groupBox->BlindLabel->Location = System::Drawing::Point(66, 56);
-		groupBox->BlindLabel->Name = L"label1";
-		groupBox->BlindLabel->Size = System::Drawing::Size(73, 13);
-		groupBox->BlindLabel->TabIndex = 0;
-		groupBox->BlindLabel->Text = "";
-		groupBox->Controls->Add(groupBox->BlindLabel);
 
 		groupBox->WinnerButton = (gcnew System::Windows::Forms::Button());
 		groupBox->WinnerButton->Location = System::Drawing::Point(119, 75);
