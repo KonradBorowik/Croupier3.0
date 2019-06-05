@@ -74,6 +74,21 @@ namespace Croupier30 {
 		}
 	}
 
+	std::vector<Player>::iterator prev_active_player(std::vector<Player>::iterator current_player) {
+
+		if (current_player == table.players.begin()) {
+			current_player = table.players.end();
+		}
+		current_player--;
+
+		if (!current_player->folded && current_player->cash > 0) {
+			return current_player;
+		}
+		else {
+			return prev_active_player(current_player);
+		}
+	}
+
 	void MyForm::MoveIntercationBox() {
 		if (table.highest_bid == current_player->current_bid) {
 			CheckButton->Visible = true;
@@ -125,8 +140,8 @@ namespace Croupier30 {
 				auto round_names = std::vector<std::string>{ "Preflop", "Flop", "Turn", "River" };
 				RoundLabel->Text = msclr::interop::marshal_as<System::String^>(round_names[table.round]);
 
-				player_to_wait_for = dealer;
 				current_player = next_active_player(dealer);
+				player_to_wait_for = prev_active_player(current_player);
 
 				//interaction.round_counter(newtable.round);
 				all_players_acted = false;
@@ -175,7 +190,6 @@ namespace Croupier30 {
 		StackLabel->Text = Convert::ToString(table.stack);
 		HighestBidLabel->Text = Convert::ToString(table.highest_bid);
 	
-
 		StartButton->Visible = true;
 	}
 
