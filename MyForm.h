@@ -89,6 +89,7 @@ namespace Croupier30 {
 	private: System::Windows::Forms::Button^ CheckButton;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
 
 	private:
 		/// <summary>
@@ -122,6 +123,7 @@ namespace Croupier30 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->TableBox = (gcnew System::Windows::Forms::GroupBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->HighestBidLabel = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->StackLabel = (gcnew System::Windows::Forms::Label());
@@ -134,7 +136,7 @@ namespace Croupier30 {
 			this->CallButton = (gcnew System::Windows::Forms::Button());
 			this->BidButton = (gcnew System::Windows::Forms::Button());
 			this->CheckButton = (gcnew System::Windows::Forms::Button());
-			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->PlayerBox->SuspendLayout();
 			this->MoneyBox->SuspendLayout();
 			this->TableBox->SuspendLayout();
@@ -235,6 +237,7 @@ namespace Croupier30 {
 			// 
 			// MoneyBox
 			// 
+			this->MoneyBox->Controls->Add(this->label10);
 			this->MoneyBox->Controls->Add(this->NewGameButton);
 			this->MoneyBox->Controls->Add(this->label5);
 			this->MoneyBox->Controls->Add(this->label4);
@@ -333,6 +336,15 @@ namespace Croupier30 {
 			this->TableBox->TabStop = false;
 			this->TableBox->Text = L"Table";
 			this->TableBox->Visible = false;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(467, 16);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(29, 13);
+			this->label9->TabIndex = 8;
+			this->label9->Text = L"Deal";
 			// 
 			// HighestBidLabel
 			// 
@@ -457,14 +469,14 @@ namespace Croupier30 {
 			this->CheckButton->Visible = false;
 			this->CheckButton->Click += gcnew System::EventHandler(this, &MyForm::CheckButton_Click);
 			// 
-			// label9
+			// label10
 			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(467, 16);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(29, 13);
-			this->label9->TabIndex = 8;
-			this->label9->Text = L"Deal";
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(6, 74);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(48, 13);
+			this->label10->TabIndex = 7;
+			this->label10->Text = L"Big Blind";
 			// 
 			// MyForm
 			// 
@@ -507,6 +519,7 @@ namespace Croupier30 {
 			System::Windows::Forms::Button^ WinnerButton;
 			System::Windows::Forms::Label^ CashLabel;
 			System::Windows::Forms::Label^ CurrentBidLabel;
+			System::Windows::Forms::Label^ BlindLabel;
 			int player_number;
 			System::Windows::Forms::Label^ CashPrompt;
 			System::Windows::Forms::Label^ CurrentBidPrompt;

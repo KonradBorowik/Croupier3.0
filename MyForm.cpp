@@ -137,11 +137,14 @@ namespace Croupier30 {
 				all_players_acted = false;
 				MoveIntercationBox();
 			} else {
-				InteractionBox->Visible = false;
-				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-	
-					pgb->WinnerButton->Visible = true;					
-
+				for (int i = 0; i < table.players.size(); i++) {
+					InteractionBox->Visible = false;
+					
+					for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+						if (!table.players[i].folded) {
+						pgb->WinnerButton->Visible = true;
+						}
+					}
 				}
 
 			}
@@ -219,8 +222,6 @@ namespace Croupier30 {
 			return;
 		}
 
-
-
 		this->label3->Visible = false;
 		AddPlayerBox->Visible = false;
 
@@ -230,7 +231,7 @@ namespace Croupier30 {
 		groupBox->Visible = true;
 		groupBox->Location = System::Drawing::Point(12 + number_of_players++ * 210, 41);
 		groupBox->Name = L"groupBox1";
-		groupBox->Size = System::Drawing::Size(200, 90);
+		groupBox->Size = System::Drawing::Size(200, 110);
 		groupBox->TabIndex = 1;
 		groupBox->TabStop = false;
 		groupBox->Text = textBox->Text;
@@ -271,8 +272,17 @@ namespace Croupier30 {
 		groupBox->CurrentBidLabel->Text = "";
 		groupBox->Controls->Add(groupBox->CurrentBidLabel);
 
+		groupBox->BlindLabel = (gcnew System::Windows::Forms::Label());
+		groupBox->BlindLabel->AutoSize = true;
+		groupBox->BlindLabel->Location = System::Drawing::Point(66, 56);
+		groupBox->BlindLabel->Name = L"label1";
+		groupBox->BlindLabel->Size = System::Drawing::Size(73, 13);
+		groupBox->BlindLabel->TabIndex = 0;
+		groupBox->BlindLabel->Text = "";
+		groupBox->Controls->Add(groupBox->BlindLabel);
+
 		groupBox->WinnerButton = (gcnew System::Windows::Forms::Button());
-		groupBox->WinnerButton->Location = System::Drawing::Point(119, 60);
+		groupBox->WinnerButton->Location = System::Drawing::Point(119, 75);
 		groupBox->WinnerButton->Name = L"WinnerButton";
 		groupBox->WinnerButton->Size = System::Drawing::Size(75, 23);
 		groupBox->WinnerButton->TabIndex = 10;
@@ -337,5 +347,6 @@ namespace Croupier30 {
 		auto& player = table.players[player_number];
 		CashLabel->Text = msclr::interop::marshal_as<System::String^>(std::to_string(player.cash));
 		CurrentBidLabel->Text = msclr::interop::marshal_as<System::String^>(std::to_string(player.current_bid));
+
 	}
 }
