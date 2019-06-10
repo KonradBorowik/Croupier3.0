@@ -531,23 +531,31 @@ namespace Croupier30 {
 			// 
 			// BidButton
 			// 
+			this->BidButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BidButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->BidButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->BidButton->Location = System::Drawing::Point(58, 48);
 			this->BidButton->Name = L"BidButton";
 			this->BidButton->Size = System::Drawing::Size(75, 23);
 			this->BidButton->TabIndex = 1;
 			this->BidButton->Text = L"Bid";
-			this->BidButton->UseVisualStyleBackColor = true;
+			this->BidButton->UseVisualStyleBackColor = false;
 			this->BidButton->Visible = false;
 			this->BidButton->Click += gcnew System::EventHandler(this, &MyForm::BidButton_Click);
 			// 
 			// CheckButton
 			// 
+			this->CheckButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->CheckButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->CheckButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->CheckButton->Location = System::Drawing::Point(58, 19);
 			this->CheckButton->Name = L"CheckButton";
 			this->CheckButton->Size = System::Drawing::Size(75, 23);
 			this->CheckButton->TabIndex = 0;
 			this->CheckButton->Text = L"Check";
-			this->CheckButton->UseVisualStyleBackColor = true;
+			this->CheckButton->UseVisualStyleBackColor = false;
 			this->CheckButton->Visible = false;
 			this->CheckButton->Click += gcnew System::EventHandler(this, &MyForm::CheckButton_Click);
 			// 

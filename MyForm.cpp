@@ -201,6 +201,10 @@ namespace Croupier30 {
 		deal++;
 		label9->Text = L"Deal " + deal;
 		RoundLabel->Text = "Preflop";
+
+		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+			pgb->StatusInfoLabel->Text = "";
+		}
 		
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		auto n = std::distance(table.players.begin(), dealer);
@@ -353,6 +357,8 @@ namespace Croupier30 {
 
 	System::Void MyForm::FoldButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		current_player->fold();
+		auto n = std::distance(table.players.begin(), current_player);
+		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Folded";
 		FinishMove();
 	}
 
