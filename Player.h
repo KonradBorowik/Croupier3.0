@@ -11,6 +11,7 @@ public:
     int cash;
     int current_bid;
     bool folded = false;
+	bool active = true;
 
 public:
     void smallblind();

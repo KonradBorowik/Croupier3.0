@@ -66,7 +66,7 @@ namespace Croupier30 {
 		if (current_player == table.players.end()) {
 			current_player = table.players.begin();
 		}
-		if (!current_player->folded && current_player->cash > 0) {
+		if (!current_player->folded && current_player->cash > 0 && current_player->active) {
 			return current_player;
 		}
 		else {
@@ -81,7 +81,7 @@ namespace Croupier30 {
 		}
 		current_player--;
 
-		if (!current_player->folded && current_player->cash > 0) {
+		if (!current_player->folded && current_player->cash > 0 && current_player->active) {
 			return current_player;
 		}
 		else {
@@ -166,7 +166,7 @@ namespace Croupier30 {
 
 		for (int i = table.players.size() - 1; i > 0 - 1; i--) {
 			if (table.players[i].cash == 0) {
-				table.players.erase(table.players.begin() + i);
+				table.players[i].active = false;
 			}
 		}
 
@@ -175,9 +175,9 @@ namespace Croupier30 {
 			pgb->WinnerButton->Visible = false;
 		}
 
-		if (table.players.size() == 1) {
-			std::string winner = table.players[0].name;
-			MessageBox::Show(" won!", "Game Finished", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		if (table.number_of_active_players() == 1) {
+			auto message = table.winner().name + " won!";
+			MessageBox::Show(msclr::interop::marshal_as<System::String^>(message), "Game Finished", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			Application::Exit();
 		}
 

@@ -18,13 +18,13 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Croupier2.0\Player.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Croupier2.0\PlayersInteraction.cpp">
+    <ClCompile Include="PlayersInteraction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Croupier2.0\Table.cpp">
+    <ClCompile Include="Table.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,13 +32,13 @@
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Croupier2.0\Player.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Croupier2.0\PlayersInteraction.h">
+    <ClInclude Include="PlayersInteraction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Croupier2.0\Table.h">
+    <ClInclude Include="Table.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,4 +19,6 @@ public:
     bool all_players_called();
     int number_of_players_with_cash();
     int number_of_players_not_folded();
+	int number_of_active_players();
+	Player& winner();
 };

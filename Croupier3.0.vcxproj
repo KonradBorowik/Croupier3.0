@@ -134,18 +134,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Croupier2.0\Player.cpp" />
-    <ClCompile Include="..\Croupier2.0\PlayersInteraction.cpp" />
-    <ClCompile Include="..\Croupier2.0\Table.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayersInteraction.cpp" />
+    <ClCompile Include="Table.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Croupier2.0\Player.h" />
-    <ClInclude Include="..\Croupier2.0\PlayersInteraction.h" />
-    <ClInclude Include="..\Croupier2.0\Table.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayersInteraction.h" />
+    <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

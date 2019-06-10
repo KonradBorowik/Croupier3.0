@@ -12,7 +12,6 @@ void Player::put_on_table(int amount) {
     cash -= amount;
     current_bid += amount;
     newtable->highest_bid = current_bid;
-    interaction.print_info(this);
 }
 
 void Player::smallblind() {
