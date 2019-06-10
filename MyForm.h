@@ -90,6 +90,7 @@ namespace Croupier30 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
 
 	private:
 		/// <summary>
@@ -108,6 +109,7 @@ namespace Croupier30 {
 			this->AddPlayerBox = (gcnew System::Windows::Forms::TextBox());
 			this->StartButton = (gcnew System::Windows::Forms::Button());
 			this->PlayerBox = (gcnew System::Windows::Forms::GroupBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->CashLabel = (gcnew System::Windows::Forms::Label());
 			this->CurrentBidLabel = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -188,6 +190,13 @@ namespace Croupier30 {
 			this->PlayerBox->TabStop = false;
 			this->PlayerBox->Text = L"groupBox1";
 			this->PlayerBox->Visible = false;
+			// 
+			// label11
+			// 
+			this->label11->Location = System::Drawing::Point(580, 41);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(100, 23);
+			this->label11->TabIndex = 0;
 			// 
 			// CashLabel
 			// 
@@ -293,6 +302,7 @@ namespace Croupier30 {
 			this->BigBlindBox->Name = L"BigBlindBox";
 			this->BigBlindBox->Size = System::Drawing::Size(100, 20);
 			this->BigBlindBox->TabIndex = 2;
+			this->BigBlindBox->Text = L"10";
 			// 
 			// SmallBlindBox
 			// 
@@ -300,6 +310,7 @@ namespace Croupier30 {
 			this->SmallBlindBox->Name = L"SmallBlindBox";
 			this->SmallBlindBox->Size = System::Drawing::Size(100, 20);
 			this->SmallBlindBox->TabIndex = 1;
+			this->SmallBlindBox->Text = L"5";
 			// 
 			// BuyInBox
 			// 
@@ -307,6 +318,7 @@ namespace Croupier30 {
 			this->BuyInBox->Name = L"BuyInBox";
 			this->BuyInBox->Size = System::Drawing::Size(100, 20);
 			this->BuyInBox->TabIndex = 0;
+			this->BuyInBox->Text = L"100";
 			// 
 			// label3
 			// 
@@ -480,6 +492,7 @@ namespace Croupier30 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(954, 544);
+			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->InteractionBox);
 			this->Controls->Add(this->TableBox);
@@ -489,7 +502,7 @@ namespace Croupier30 {
 			this->Controls->Add(this->AddPlayerBox);
 			this->Controls->Add(this->AddPlayerButton);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Croupier3.0";
 			this->PlayerBox->ResumeLayout(false);
 			this->PlayerBox->PerformLayout();
 			this->MoneyBox->ResumeLayout(false);
@@ -521,6 +534,7 @@ namespace Croupier30 {
 			System::Windows::Forms::Label^ CashPrompt;
 			System::Windows::Forms::Label^ CurrentBidPrompt;
 			void Update();
+			System::Windows::Forms::Label^ StatusInfoLabel;
 			
 		};
 

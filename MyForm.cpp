@@ -75,7 +75,7 @@ namespace Croupier30 {
 	}
 
 	std::vector<Player>::iterator prev_active_player(std::vector<Player>::iterator current_player) {
-
+		
 		if (current_player == table.players.begin()) {
 			current_player = table.players.end();
 		}
@@ -149,7 +149,9 @@ namespace Croupier30 {
 			} else {
 				InteractionBox->Visible = false;			
 				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-					pgb->WinnerButton->Visible = true;
+					if (!table.players[pgb->player_number].folded) {
+						pgb->WinnerButton->Visible = true;
+					}
 				}
 			}
 		}
@@ -164,11 +166,13 @@ namespace Croupier30 {
 		auto groupbox = (PlayerGroupBox^)button->Parent;
 		table.players[groupbox->player_number].cash += table.stack;
 
-		for (int i = table.players.size() - 1; i > 0 - 1; i--) {
-			if (table.players[i].cash == 0) {
-				table.players[i].active = false;
+		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
+			if (table.players[pgb->player_number].cash == 0) {
+				table.players[pgb->player_number].active = false;
+					pgb->StatusInfoLabel ->Text = "bankrut";
 			}
 		}
+		
 
 		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
 			pgb->Update();
@@ -286,6 +290,14 @@ namespace Croupier30 {
 		groupBox->WinnerButton->Visible = false;
 		groupBox->WinnerButton->Click += gcnew System::EventHandler(this, &MyForm::WinnerButton_Click);
 		groupBox->Controls->Add(groupBox->WinnerButton);
+
+		groupBox->StatusInfoLabel = (gcnew System::Windows::Forms::Label());
+		groupBox->StatusInfoLabel->AutoSize = true;
+		groupBox->StatusInfoLabel->Location = System::Drawing::Point(6, 62);
+		groupBox->StatusInfoLabel->Name = L"label11";
+		groupBox->StatusInfoLabel->Size = System::Drawing::Size(41, 13);
+		groupBox->StatusInfoLabel->TabIndex = 5;
+		groupBox->StatusInfoLabel->Text = L"label11";
 
 		this->AddPlayerBox->Text = "";
 
