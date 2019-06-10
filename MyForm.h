@@ -109,12 +109,12 @@ namespace Croupier30 {
 			this->AddPlayerBox = (gcnew System::Windows::Forms::TextBox());
 			this->StartButton = (gcnew System::Windows::Forms::Button());
 			this->PlayerBox = (gcnew System::Windows::Forms::GroupBox());
-			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->CashLabel = (gcnew System::Windows::Forms::Label());
 			this->CurrentBidLabel = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->WinnerButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->MoneyBox = (gcnew System::Windows::Forms::GroupBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->NewGameButton = (gcnew System::Windows::Forms::Button());
@@ -147,17 +147,24 @@ namespace Croupier30 {
 			// 
 			// AddPlayerButton
 			// 
+			this->AddPlayerButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->AddPlayerButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->AddPlayerButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->AddPlayerButton->Location = System::Drawing::Point(12, 12);
 			this->AddPlayerButton->Name = L"AddPlayerButton";
 			this->AddPlayerButton->Size = System::Drawing::Size(75, 23);
 			this->AddPlayerButton->TabIndex = 0;
 			this->AddPlayerButton->Text = L"Add Player";
-			this->AddPlayerButton->UseVisualStyleBackColor = true;
+			this->AddPlayerButton->UseVisualStyleBackColor = false;
 			this->AddPlayerButton->Visible = false;
 			this->AddPlayerButton->Click += gcnew System::EventHandler(this, &MyForm::AddPlayerButton_Click);
 			// 
 			// AddPlayerBox
 			// 
+			this->AddPlayerBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->AddPlayerBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->AddPlayerBox->Location = System::Drawing::Point(162, 14);
 			this->AddPlayerBox->Name = L"AddPlayerBox";
 			this->AddPlayerBox->Size = System::Drawing::Size(100, 20);
@@ -167,12 +174,16 @@ namespace Croupier30 {
 			// 
 			// StartButton
 			// 
+			this->StartButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->StartButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->StartButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->StartButton->Location = System::Drawing::Point(268, 14);
 			this->StartButton->Name = L"StartButton";
 			this->StartButton->Size = System::Drawing::Size(75, 23);
 			this->StartButton->TabIndex = 2;
 			this->StartButton->Text = L"Start";
-			this->StartButton->UseVisualStyleBackColor = true;
+			this->StartButton->UseVisualStyleBackColor = false;
 			this->StartButton->Visible = false;
 			this->StartButton->Click += gcnew System::EventHandler(this, &MyForm::StartButton_Click);
 			// 
@@ -183,6 +194,7 @@ namespace Croupier30 {
 			this->PlayerBox->Controls->Add(this->label2);
 			this->PlayerBox->Controls->Add(this->WinnerButton);
 			this->PlayerBox->Controls->Add(this->label1);
+			this->PlayerBox->Cursor = System::Windows::Forms::Cursors::Default;
 			this->PlayerBox->Location = System::Drawing::Point(12, 41);
 			this->PlayerBox->Name = L"PlayerBox";
 			this->PlayerBox->Size = System::Drawing::Size(200, 100);
@@ -191,16 +203,10 @@ namespace Croupier30 {
 			this->PlayerBox->Text = L"groupBox1";
 			this->PlayerBox->Visible = false;
 			// 
-			// label11
-			// 
-			this->label11->Location = System::Drawing::Point(580, 41);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(100, 23);
-			this->label11->TabIndex = 0;
-			// 
 			// CashLabel
 			// 
 			this->CashLabel->AutoSize = true;
+			this->CashLabel->Cursor = System::Windows::Forms::Cursors::Default;
 			this->CashLabel->Location = System::Drawing::Point(93, 16);
 			this->CashLabel->Name = L"CashLabel";
 			this->CashLabel->Size = System::Drawing::Size(73, 13);
@@ -210,6 +216,7 @@ namespace Croupier30 {
 			// CurrentBidLabel
 			// 
 			this->CurrentBidLabel->AutoSize = true;
+			this->CurrentBidLabel->Cursor = System::Windows::Forms::Cursors::Default;
 			this->CurrentBidLabel->Location = System::Drawing::Point(93, 39);
 			this->CurrentBidLabel->Name = L"CurrentBidLabel";
 			this->CurrentBidLabel->Size = System::Drawing::Size(101, 13);
@@ -219,6 +226,7 @@ namespace Croupier30 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label2->Location = System::Drawing::Point(6, 39);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(59, 13);
@@ -227,22 +235,34 @@ namespace Croupier30 {
 			// 
 			// WinnerButton
 			// 
+			this->WinnerButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->WinnerButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->WinnerButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->WinnerButton->Location = System::Drawing::Point(119, 71);
 			this->WinnerButton->Name = L"WinnerButton";
 			this->WinnerButton->Size = System::Drawing::Size(75, 23);
 			this->WinnerButton->TabIndex = 1;
 			this->WinnerButton->Text = L"Winner";
-			this->WinnerButton->UseVisualStyleBackColor = true;
+			this->WinnerButton->UseVisualStyleBackColor = false;
 			this->WinnerButton->Visible = false;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label1->Location = System::Drawing::Point(6, 16);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(31, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Cash";
+			// 
+			// label11
+			// 
+			this->label11->Location = System::Drawing::Point(610, 17);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(100, 23);
+			this->label11->TabIndex = 0;
 			// 
 			// MoneyBox
 			// 
@@ -253,7 +273,8 @@ namespace Croupier30 {
 			this->MoneyBox->Controls->Add(this->BigBlindBox);
 			this->MoneyBox->Controls->Add(this->SmallBlindBox);
 			this->MoneyBox->Controls->Add(this->BuyInBox);
-			this->MoneyBox->Location = System::Drawing::Point(304, 41);
+			this->MoneyBox->Cursor = System::Windows::Forms::Cursors::Default;
+			this->MoneyBox->Location = System::Drawing::Point(335, 47);
 			this->MoneyBox->Name = L"MoneyBox";
 			this->MoneyBox->Size = System::Drawing::Size(200, 130);
 			this->MoneyBox->TabIndex = 4;
@@ -262,6 +283,7 @@ namespace Croupier30 {
 			// label10
 			// 
 			this->label10->AutoSize = true;
+			this->label10->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label10->Location = System::Drawing::Point(6, 74);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(48, 13);
@@ -270,17 +292,22 @@ namespace Croupier30 {
 			// 
 			// NewGameButton
 			// 
+			this->NewGameButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->NewGameButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->NewGameButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->NewGameButton->Location = System::Drawing::Point(61, 101);
 			this->NewGameButton->Name = L"NewGameButton";
 			this->NewGameButton->Size = System::Drawing::Size(75, 23);
 			this->NewGameButton->TabIndex = 6;
 			this->NewGameButton->Text = L"New Game";
-			this->NewGameButton->UseVisualStyleBackColor = true;
+			this->NewGameButton->UseVisualStyleBackColor = false;
 			this->NewGameButton->Click += gcnew System::EventHandler(this, &MyForm::NewGameButton_Click);
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
+			this->label5->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label5->Location = System::Drawing::Point(6, 48);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(58, 13);
@@ -290,6 +317,7 @@ namespace Croupier30 {
 			// label4
 			// 
 			this->label4->AutoSize = true;
+			this->label4->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label4->Location = System::Drawing::Point(6, 22);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(37, 13);
@@ -298,6 +326,9 @@ namespace Croupier30 {
 			// 
 			// BigBlindBox
 			// 
+			this->BigBlindBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BigBlindBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->BigBlindBox->Location = System::Drawing::Point(94, 71);
 			this->BigBlindBox->Name = L"BigBlindBox";
 			this->BigBlindBox->Size = System::Drawing::Size(100, 20);
@@ -306,6 +337,9 @@ namespace Croupier30 {
 			// 
 			// SmallBlindBox
 			// 
+			this->SmallBlindBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->SmallBlindBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->SmallBlindBox->Location = System::Drawing::Point(94, 45);
 			this->SmallBlindBox->Name = L"SmallBlindBox";
 			this->SmallBlindBox->Size = System::Drawing::Size(100, 20);
@@ -314,6 +348,9 @@ namespace Croupier30 {
 			// 
 			// BuyInBox
 			// 
+			this->BuyInBox->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BuyInBox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->BuyInBox->Location = System::Drawing::Point(94, 19);
 			this->BuyInBox->Name = L"BuyInBox";
 			this->BuyInBox->Size = System::Drawing::Size(100, 20);
@@ -323,6 +360,7 @@ namespace Croupier30 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
+			this->label3->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label3->Location = System::Drawing::Point(93, 17);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(63, 13);
@@ -333,6 +371,7 @@ namespace Croupier30 {
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label6->Location = System::Drawing::Point(144, 16);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(35, 13);
@@ -347,6 +386,8 @@ namespace Croupier30 {
 			this->TableBox->Controls->Add(this->label6);
 			this->TableBox->Controls->Add(this->StackLabel);
 			this->TableBox->Controls->Add(this->RoundLabel);
+			this->TableBox->Cursor = System::Windows::Forms::Cursors::Default;
+			this->TableBox->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->TableBox->Location = System::Drawing::Point(43, 205);
 			this->TableBox->Name = L"TableBox";
 			this->TableBox->Size = System::Drawing::Size(561, 50);
@@ -358,6 +399,7 @@ namespace Croupier30 {
 			// label9
 			// 
 			this->label9->AutoSize = true;
+			this->label9->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label9->Location = System::Drawing::Point(467, 16);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(29, 13);
@@ -367,6 +409,7 @@ namespace Croupier30 {
 			// HighestBidLabel
 			// 
 			this->HighestBidLabel->AutoSize = true;
+			this->HighestBidLabel->Cursor = System::Windows::Forms::Cursors::Default;
 			this->HighestBidLabel->Location = System::Drawing::Point(384, 16);
 			this->HighestBidLabel->Name = L"HighestBidLabel";
 			this->HighestBidLabel->Size = System::Drawing::Size(35, 13);
@@ -376,6 +419,7 @@ namespace Croupier30 {
 			// label7
 			// 
 			this->label7->AutoSize = true;
+			this->label7->Cursor = System::Windows::Forms::Cursors::Default;
 			this->label7->Location = System::Drawing::Point(319, 16);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(61, 13);
@@ -385,6 +429,7 @@ namespace Croupier30 {
 			// StackLabel
 			// 
 			this->StackLabel->AutoSize = true;
+			this->StackLabel->Cursor = System::Windows::Forms::Cursors::Default;
 			this->StackLabel->Location = System::Drawing::Point(196, 16);
 			this->StackLabel->Name = L"StackLabel";
 			this->StackLabel->Size = System::Drawing::Size(35, 13);
@@ -394,6 +439,7 @@ namespace Croupier30 {
 			// RoundLabel
 			// 
 			this->RoundLabel->AutoSize = true;
+			this->RoundLabel->Cursor = System::Windows::Forms::Cursors::Default;
 			this->RoundLabel->Location = System::Drawing::Point(9, 16);
 			this->RoundLabel->Name = L"RoundLabel";
 			this->RoundLabel->Size = System::Drawing::Size(35, 13);
@@ -415,6 +461,8 @@ namespace Croupier30 {
 			this->InteractionBox->Controls->Add(this->CallButton);
 			this->InteractionBox->Controls->Add(this->BidButton);
 			this->InteractionBox->Controls->Add(this->CheckButton);
+			this->InteractionBox->Cursor = System::Windows::Forms::Cursors::Default;
+			this->InteractionBox->ForeColor = System::Drawing::Color::Black;
 			this->InteractionBox->Location = System::Drawing::Point(12, 350);
 			this->InteractionBox->Name = L"InteractionBox";
 			this->InteractionBox->Size = System::Drawing::Size(200, 138);
@@ -425,43 +473,59 @@ namespace Croupier30 {
 			// 
 			// FoldButton
 			// 
+			this->FoldButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->FoldButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->FoldButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->FoldButton->Location = System::Drawing::Point(58, 106);
 			this->FoldButton->Name = L"FoldButton";
 			this->FoldButton->Size = System::Drawing::Size(75, 23);
 			this->FoldButton->TabIndex = 5;
 			this->FoldButton->Text = L"Fold";
-			this->FoldButton->UseVisualStyleBackColor = true;
+			this->FoldButton->UseVisualStyleBackColor = false;
 			this->FoldButton->Click += gcnew System::EventHandler(this, &MyForm::FoldButton_Click);
 			// 
 			// AllInButton
 			// 
+			this->AllInButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->AllInButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->AllInButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->AllInButton->Location = System::Drawing::Point(58, 77);
 			this->AllInButton->Name = L"AllInButton";
 			this->AllInButton->Size = System::Drawing::Size(75, 23);
 			this->AllInButton->TabIndex = 4;
 			this->AllInButton->Text = L"All In";
-			this->AllInButton->UseVisualStyleBackColor = true;
+			this->AllInButton->UseVisualStyleBackColor = false;
 			this->AllInButton->Click += gcnew System::EventHandler(this, &MyForm::AllInButton_Click);
 			// 
 			// RaiseButton
 			// 
+			this->RaiseButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->RaiseButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->RaiseButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->RaiseButton->Location = System::Drawing::Point(58, 48);
 			this->RaiseButton->Name = L"RaiseButton";
 			this->RaiseButton->Size = System::Drawing::Size(75, 23);
 			this->RaiseButton->TabIndex = 3;
 			this->RaiseButton->Text = L"Rasie";
-			this->RaiseButton->UseVisualStyleBackColor = true;
+			this->RaiseButton->UseVisualStyleBackColor = false;
 			this->RaiseButton->Visible = false;
 			this->RaiseButton->Click += gcnew System::EventHandler(this, &MyForm::RaiseButton_Click);
 			// 
 			// CallButton
 			// 
+			this->CallButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->CallButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->CallButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->CallButton->Location = System::Drawing::Point(58, 19);
 			this->CallButton->Name = L"CallButton";
 			this->CallButton->Size = System::Drawing::Size(75, 23);
 			this->CallButton->TabIndex = 2;
 			this->CallButton->Text = L"Call";
-			this->CallButton->UseVisualStyleBackColor = true;
+			this->CallButton->UseVisualStyleBackColor = false;
 			this->CallButton->Visible = false;
 			this->CallButton->Click += gcnew System::EventHandler(this, &MyForm::CallButton_Click);
 			// 
@@ -491,6 +555,7 @@ namespace Croupier30 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Green;
 			this->ClientSize = System::Drawing::Size(954, 544);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label3);
@@ -501,6 +566,7 @@ namespace Croupier30 {
 			this->Controls->Add(this->StartButton);
 			this->Controls->Add(this->AddPlayerBox);
 			this->Controls->Add(this->AddPlayerButton);
+			this->Cursor = System::Windows::Forms::Cursors::Default;
 			this->Name = L"MyForm";
 			this->Text = L"Croupier3.0";
 			this->PlayerBox->ResumeLayout(false);

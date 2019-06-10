@@ -169,7 +169,7 @@ namespace Croupier30 {
 		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
 			if (table.players[pgb->player_number].cash == 0) {
 				table.players[pgb->player_number].active = false;
-					pgb->StatusInfoLabel ->Text = "bankrut";
+				pgb->StatusInfoLabel->Text = "bankrut";
 			}
 		}
 		
@@ -200,18 +200,22 @@ namespace Croupier30 {
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		deal++;
 		label9->Text = L"Deal " + deal;
-
-		dealer = table.players.begin() + (deal - 1) % table.players.size();
-		current_player = next_active_player(dealer);
-
 		RoundLabel->Text = "Preflop";
-
+		
+		dealer = table.players.begin() + (deal - 1) % table.players.size();
+		auto n = std::distance(table.players.begin(), dealer);
+		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Dealer";
+		
+		current_player = next_active_player(dealer);
 		current_player->smallblind();
+		PlayerGroupBoxes[n+1]->StatusInfoLabel->Text = "Small blind";
+
 		current_player = next_active_player(current_player);
 		current_player->bigblind();
+		PlayerGroupBoxes[n + 2]->StatusInfoLabel->Text = "Big blind";
 		player_to_wait_for = current_player;
+		
 		current_player = next_active_player(current_player);
-
 		UpdatePlayerStatus();
 
 		StackLabel->Text = Convert::ToString(table.stack);
@@ -293,11 +297,12 @@ namespace Croupier30 {
 
 		groupBox->StatusInfoLabel = (gcnew System::Windows::Forms::Label());
 		groupBox->StatusInfoLabel->AutoSize = true;
-		groupBox->StatusInfoLabel->Location = System::Drawing::Point(6, 62);
-		groupBox->StatusInfoLabel->Name = L"label11";
+		groupBox->StatusInfoLabel->Location = System::Drawing::Point(6, 75);
+		groupBox->StatusInfoLabel->Name = "";
 		groupBox->StatusInfoLabel->Size = System::Drawing::Size(41, 13);
 		groupBox->StatusInfoLabel->TabIndex = 5;
-		groupBox->StatusInfoLabel->Text = L"label11";
+		groupBox->StatusInfoLabel->Text = "";
+		groupBox->Controls->Add(groupBox->StatusInfoLabel);
 
 		this->AddPlayerBox->Text = "";
 
