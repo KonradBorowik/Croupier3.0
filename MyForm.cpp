@@ -197,6 +197,13 @@ namespace Croupier30 {
 		StartButton->Visible = true;
 	}
 
+	int check_if_end_of_vector(int i) {
+		if (i == table.players.size()) {
+			i = 0;
+		}
+		return i;
+	}
+
 	System::Void MyForm::StartButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		deal++;
 		label9->Text = L"Deal " + deal;
@@ -208,15 +215,17 @@ namespace Croupier30 {
 		
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		auto n = std::distance(table.players.begin(), dealer);
-		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Dealer";
+		PlayerGroupBoxes[n++]->StatusInfoLabel->Text = "Dealer";
 		
 		current_player = next_active_player(dealer);
 		current_player->smallblind();
-		PlayerGroupBoxes[n+1]->StatusInfoLabel->Text = "Small blind";
+		n = check_if_end_of_vector(n);
+		PlayerGroupBoxes[n++]->StatusInfoLabel->Text = "Small blind";
 
 		current_player = next_active_player(current_player);
 		current_player->bigblind();
-		PlayerGroupBoxes[n + 2]->StatusInfoLabel->Text = "Big blind";
+		n =  check_if_end_of_vector(n);
+		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Big blind";
 		player_to_wait_for = current_player;
 		
 		current_player = next_active_player(current_player);
