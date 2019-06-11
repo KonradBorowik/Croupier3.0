@@ -23,15 +23,7 @@ namespace Croupier30 {
 	}
 	
 	System::Void MyForm::NewGameButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		//if (BuyInBox->Text == "") {
-		//	MessageBox::Show("Add Buy-in!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		//}
-		//if (SmallBlindBox->Text == "") {
-		//	MessageBox::Show("Add Small blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		//}
-		//if (BigBlindBox->Text == "") {
-		//	MessageBox::Show("Add Big blind!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		//}
+
 
 		try {
 			table.buy_in = Convert::ToInt32(BuyInBox->Text);
@@ -143,7 +135,6 @@ namespace Croupier30 {
 				current_player = next_active_player(dealer);
 				player_to_wait_for = prev_active_player(current_player);
 
-				//interaction.round_counter(newtable.round);
 				all_players_acted = false;
 				MoveIntercationBox();
 			} else {
@@ -209,22 +200,27 @@ namespace Croupier30 {
 		label9->Text = L"Deal " + deal;
 		RoundLabel->Text = "Preflop";
 
+		for (auto& player : table.players) {
+			player.current_bid = 0;
+		}
+
 		for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
 			pgb->StatusInfoLabel->Text = "";
+			pgb->CurrentBidLabel->Text = "";
 		}
 		
 		dealer = table.players.begin() + (deal - 1) % table.players.size();
 		auto n = std::distance(table.players.begin(), dealer);
-		PlayerGroupBoxes[n++]->StatusInfoLabel->Text = "Dealer";
+		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Dealer";
 		
 		current_player = next_active_player(dealer);
 		current_player->smallblind();
-		n = check_if_end_of_vector(n);
-		PlayerGroupBoxes[n++]->StatusInfoLabel->Text = "Small blind";
+		n = std::distance(table.players.begin(), current_player);
+		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Small blind";
 
 		current_player = next_active_player(current_player);
 		current_player->bigblind();
-		n =  check_if_end_of_vector(n);
+		n = std::distance(table.players.begin(), current_player);
 		PlayerGroupBoxes[n]->StatusInfoLabel->Text = "Big blind";
 		player_to_wait_for = current_player;
 		
@@ -253,6 +249,7 @@ namespace Croupier30 {
 		System::Windows::Forms::TextBox^ textBox = (System::Windows::Forms::TextBox^)sender;
 
 		auto groupBox = gcnew PlayerGroupBox();
+		groupBox->BackColor = System::Drawing::Color::SeaGreen;
 		groupBox->Visible = true;
 		groupBox->Location = System::Drawing::Point(12 + number_of_players++ * 210, 41);
 		groupBox->Name = L"groupBox1";
@@ -298,7 +295,10 @@ namespace Croupier30 {
 		groupBox->Controls->Add(groupBox->CurrentBidLabel);
 
 		groupBox->WinnerButton = (gcnew System::Windows::Forms::Button());
+		groupBox->WinnerButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 		groupBox->WinnerButton->Location = System::Drawing::Point(119, 75);
+		groupBox->WinnerButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 		groupBox->WinnerButton->Name = L"WinnerButton";
 		groupBox->WinnerButton->Size = System::Drawing::Size(75, 23);
 		groupBox->WinnerButton->TabIndex = 10;
@@ -328,7 +328,6 @@ namespace Croupier30 {
 		if (number_of_players > 1) {
 			StartButton->Visible = true;
 		}
-		//MessageBox::Show("player added", "notification", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		Update();
 		PlayerGroupBoxes.Add(groupBox);
 	}

@@ -17,11 +17,13 @@ int Table::number_of_active_players() {
 
 bool Table::all_players_called() {
     bool result = true;
+
     for (auto &player : players) {
             if (!player.folded && player.current_bid != highest_bid) {
                 result = false;
             }
         }
+
     return result;
 }
 

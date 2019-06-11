@@ -189,6 +189,7 @@ namespace Croupier30 {
 			// 
 			// PlayerBox
 			// 
+			this->PlayerBox->BackColor = System::Drawing::Color::SeaGreen;
 			this->PlayerBox->Controls->Add(this->CashLabel);
 			this->PlayerBox->Controls->Add(this->CurrentBidLabel);
 			this->PlayerBox->Controls->Add(this->label2);
@@ -266,6 +267,7 @@ namespace Croupier30 {
 			// 
 			// MoneyBox
 			// 
+			this->MoneyBox->BackColor = System::Drawing::Color::SeaGreen;
 			this->MoneyBox->Controls->Add(this->label10);
 			this->MoneyBox->Controls->Add(this->NewGameButton);
 			this->MoneyBox->Controls->Add(this->label5);
@@ -380,6 +382,7 @@ namespace Croupier30 {
 			// 
 			// TableBox
 			// 
+			this->TableBox->BackColor = System::Drawing::Color::SeaGreen;
 			this->TableBox->Controls->Add(this->label9);
 			this->TableBox->Controls->Add(this->HighestBidLabel);
 			this->TableBox->Controls->Add(this->label7);
@@ -388,7 +391,7 @@ namespace Croupier30 {
 			this->TableBox->Controls->Add(this->RoundLabel);
 			this->TableBox->Cursor = System::Windows::Forms::Cursors::Default;
 			this->TableBox->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->TableBox->Location = System::Drawing::Point(43, 205);
+			this->TableBox->Location = System::Drawing::Point(12, 206);
 			this->TableBox->Name = L"TableBox";
 			this->TableBox->Size = System::Drawing::Size(561, 50);
 			this->TableBox->TabIndex = 5;
@@ -455,6 +458,7 @@ namespace Croupier30 {
 			// 
 			// InteractionBox
 			// 
+			this->InteractionBox->BackColor = System::Drawing::Color::SeaGreen;
 			this->InteractionBox->Controls->Add(this->FoldButton);
 			this->InteractionBox->Controls->Add(this->AllInButton);
 			this->InteractionBox->Controls->Add(this->RaiseButton);
