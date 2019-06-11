@@ -28,7 +28,7 @@ bool Table::all_players_called() {
 }
 
 int Table::number_of_players_with_cash() {
-    return std::count_if(players.begin(), players.end(), [](Player &player) { return player.cash > 0; });
+    return std::count_if(players.begin(), players.end(), [](Player &player) { return player.cash > 0 && !player.folded; });
 }
 
 Player& Table::winner() {

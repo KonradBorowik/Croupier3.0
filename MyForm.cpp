@@ -132,8 +132,10 @@ namespace Croupier30 {
 				auto round_names = std::vector<std::string>{ "Preflop", "Flop", "Turn", "River" };
 				RoundLabel->Text = msclr::interop::marshal_as<System::String^>(round_names[table.round]);
 
-				current_player = next_active_player(dealer);
-				player_to_wait_for = prev_active_player(current_player);
+				if (table.number_of_players_with_cash() > 0 && table.number_of_players_not_folded() > 0) {
+					current_player = next_active_player(dealer);
+				}
+				player_to_wait_for = prev_active_player(current_player);			
 
 				all_players_acted = false;
 				MoveIntercationBox();
