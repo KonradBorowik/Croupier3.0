@@ -90,7 +90,7 @@ namespace Croupier30 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::Label^ label11;
+
 
 	private:
 		/// <summary>
@@ -114,7 +114,6 @@ namespace Croupier30 {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->WinnerButton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->MoneyBox = (gcnew System::Windows::Forms::GroupBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->NewGameButton = (gcnew System::Windows::Forms::Button());
@@ -257,13 +256,6 @@ namespace Croupier30 {
 			this->label1->Size = System::Drawing::Size(31, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Cash";
-			// 
-			// label11
-			// 
-			this->label11->Location = System::Drawing::Point(610, 17);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(100, 23);
-			this->label11->TabIndex = 0;
 			// 
 			// MoneyBox
 			// 
@@ -569,7 +561,6 @@ namespace Croupier30 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Green;
 			this->ClientSize = System::Drawing::Size(954, 544);
-			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->InteractionBox);
 			this->Controls->Add(this->TableBox);

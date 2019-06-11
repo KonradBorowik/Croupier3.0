@@ -200,6 +200,9 @@ namespace Croupier30 {
 		label9->Text = L"Deal " + deal;
 		RoundLabel->Text = "Preflop";
 
+		all_players_acted = false;
+		table.round = 0;
+
 		for (auto& player : table.players) {
 			player.current_bid = 0;
 		}
