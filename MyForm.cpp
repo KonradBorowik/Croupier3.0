@@ -142,7 +142,7 @@ namespace Croupier30 {
 			} else {
 				InteractionBox->Visible = false;			
 				for each (PlayerGroupBox ^ pgb in PlayerGroupBoxes) {
-					if (!table.players[pgb->player_number].folded) {
+					if (!table.players[pgb->player_number].folded && table.players[pgb->player_number].active) {
 						pgb->WinnerButton->Visible = true;
 					}
 				}
