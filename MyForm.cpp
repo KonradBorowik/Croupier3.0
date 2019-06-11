@@ -117,6 +117,9 @@ namespace Croupier30 {
 		if (table.number_of_players_with_cash()) {
 			current_player = next_active_player(current_player);
 		}
+		auto apc = table.all_players_called();
+		auto nopwc = table.number_of_players_with_cash();
+		auto nopnf = table.number_of_players_not_folded();
 
 		if ((!table.all_players_called() || !all_players_acted) && table.number_of_players_with_cash() >= 1 && table.number_of_players_not_folded() >= 2) {
 			MoveIntercationBox();

@@ -8,7 +8,7 @@ extern PlayersInteraction interaction;
 
 
 int Table::number_of_players_not_folded() {
-    return std::count_if(players.begin(), players.end(), [](Player &player) {return !player.folded;} );
+    return std::count_if(players.begin(), players.end(), [](Player &player) {return !player.folded && player.active;} );
 }
 
 int Table::number_of_active_players() {
@@ -16,15 +16,7 @@ int Table::number_of_active_players() {
 }
 
 bool Table::all_players_called() {
-    bool result = true;
-
-    for (auto &player : players) {
-            if (!player.folded && player.current_bid != highest_bid) {
-                result = false;
-            }
-        }
-
-    return result;
+	return std::all_of(players.begin(), players.end(), [&](Player & player) { return player.folded || !player.active || player.current_bid == highest_bid ; });
 }
 
 int Table::number_of_players_with_cash() {
